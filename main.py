@@ -32,9 +32,10 @@ def gameloop():
     food_y=round(random.randrange(0,height-cell)/cell)*cell
 
     white_status,blue_status=0,0
-    block_choose=random.choice([0,1])
-    if block_choose:white_status=1
-    else:blue_status=1
+    block_choose=random.choice([0,1,2])
+    if block_choose==0:white_status=1
+    elif block_choose==1:blue_status=1
+    else :pass
     food_x_white=round(random.randrange(0,width-cell)/cell)*cell
     food_y_white=round(random.randrange(0,height-cell)/cell)*cell
     
@@ -123,14 +124,15 @@ def gameloop():
 
             if red_counter%5==0:
                 #randomizes next block to spawn
-                block_choose=random.choice([0,1])
-                if block_choose:white_status=1
-                else:blue_status=1
+                 block_choose=random.choice([0,1,2])
+                 if block_choose==0:white_status=1
+                 elif block_choose==1:blue_status=1
+                 else :pass
                 
-                food_x_white=round(random.randrange(0,width-cell)/cell)*cell
-                food_y_white=round(random.randrange(0,height-cell)/cell)*cell
-                food_x_blue=round(random.randrange(0,width-cell)/cell)*cell
-                food_y_blue=round(random.randrange(0,height-cell)/cell)*cell
+                 food_x_white=round(random.randrange(0,width-cell)/cell)*cell
+                 food_y_white=round(random.randrange(0,height-cell)/cell)*cell
+                 food_x_blue=round(random.randrange(0,width-cell)/cell)*cell
+                 food_y_blue=round(random.randrange(0,height-cell)/cell)*cell
             if snake_speed<30: snake_speed+=0.5;
 
             if (score_counter+1)%10==0 and score_counter!=0:
