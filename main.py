@@ -141,8 +141,11 @@ def gameloop():
         elif food_x_white==x and food_y_white==y:
             #contact with food whit
             white_status=0
-            if score_counter>=3:score_counter-=3#reduces score by 3
-            if snake_speed<30: snake_speed-=0.5;#slows the snake down
+            if blen>=4:blen-=3
+            elif score_counter<3:
+                print("check")
+                blen=1#reduces score by 3
+            if snake_speed>30: snake_speed-=0.5;#slows the snake down
         
         elif food_x_blue==x and food_y_blue==y:
             #contact with food blue
@@ -176,7 +179,7 @@ def gameloop():
     disp.fill(black)
     m=font_style.render("Game Over",True,red)
     disp.blit(m,[(width/2)-40,height/2])
-    f_score=font_style.render("Score: "+str(blen-1),True,white)
+    f_score=font_style.render("Score: "+str(score_counter),True,white)
     disp.blit(f_score,[(width/2)-30,(height/2)+27])
     pygame.display.update()
     time.sleep(2)
